@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="css/tacit.min.css" rel="stylesheet" type="text/css">
+  <link href="css/gridpak.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="zombiedice.js"></script>
+</head>
+
+<body>
+</body>
+
+<script type="text/javascript">
+  var app = Elm.fullscreen(Elm.ZombieDice, { addPlayer: "" });
+  app.ports.displayPrompt.subscribe(function(){
+      var value = window.prompt("What is the players name?");
+      if(value != null){
+        app.ports.addPlayer.send(value);
+      }
+  });
+</script>
+
+</html>
